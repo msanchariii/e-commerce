@@ -15,16 +15,7 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const { user } = useAuth()
 
   return (
-    <nav
-      className={[
-        classes.nav,
-        // fade the nav in on user load to avoid flash of content and layout shift
-        // Vercel also does this in their own website header, see https://vercel.com
-        user === undefined && classes.hide,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-    >
+    <nav className={[classes.nav, user === undefined && classes.hide].filter(Boolean).join(' ')}>
       {navItems.map(({ link }, i) => {
         return <CMSLink key={i} {...link} appearance="none" />
       })}
