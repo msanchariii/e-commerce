@@ -1,0 +1,11 @@
+@import "../../_css/queries.scss";
+
+.home{
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+
+  @include mid-breal{
+    gap: 60px;
+  }
+}
