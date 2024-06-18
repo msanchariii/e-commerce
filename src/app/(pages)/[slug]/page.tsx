@@ -13,7 +13,7 @@ import { generateMeta } from '../../_utilities/generateMeta';
 import { Gutter } from '../../_components/Gutter';
 
 import classes from './index.module.css';
-// import Categories from '../../_components/Categories';
+import Categories from '../../_components/Categories';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,7 +21,7 @@ export default async function Page({ params: { slug = 'home' } }) {
   const { isEnabled: isDraftMode } = draftMode();
 
   let page: PageTypes | null = null;
-  // let categories: Category[] | null = null;
+  let categories: Category[] | null = null;
   try {
     page = await fetchDoc<PageTypes>({
       collection: 'pages',
@@ -29,7 +29,7 @@ export default async function Page({ params: { slug = 'home' } }) {
       draft: isDraftMode,
     });
 
-    // categories = await fetchDocs<Category>('categories');
+    categories = await fetchDocs<Category>('categories');
   } catch (error) {
     console.error(error);
   }
@@ -52,9 +52,9 @@ export default async function Page({ params: { slug = 'home' } }) {
       {slug === 'home' ? (
         <section>
           <Hero {...hero} />
-          {/* <Gutter>
+          <Gutter>
             <Categories categories={categories} />
-          </Gutter> */}
+          </Gutter>
         </section>
       ) : (
         <>
