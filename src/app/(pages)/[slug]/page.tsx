@@ -14,6 +14,7 @@ import { Gutter } from '../../_components/Gutter';
 
 import classes from './index.module.css';
 import Categories from '../../_components/Categories';
+import Promotion from '../../_components/Promotions';
 
 export const dynamic = 'force-dynamic';
 
@@ -54,6 +55,7 @@ export default async function Page({ params: { slug = 'home' } }) {
           <Hero {...hero} />
           <Gutter>
             <Categories categories={categories} />
+            <Promotion></Promotion>
           </Gutter>
         </section>
       ) : (
