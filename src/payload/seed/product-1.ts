@@ -1,4 +1,4 @@
-import type { Product } from '../payload-types'
+import type { Product } from '../payload-types';
 
 export const product1: Partial<Product> = {
   title: 'Cotton T-Shirt',
@@ -19,9 +19,9 @@ export const product1: Partial<Product> = {
           richText: [
             {
               children: [
-                {
-                  text: "This content is completely dynamic using custom layout building blocks configured in the CMS. This can be anything you'd like from rich text and images, to highly designed, complex components.",
-                },
+                // {
+                //   text: "This content is completely dynamic using custom layout building blocks configured in the CMS. This can be anything you'd like from rich text and images, to highly designed, complex components.",
+                // },
               ],
             },
           ],
@@ -35,4 +35,4 @@ export const product1: Partial<Product> = {
     },
   ],
   relatedProducts: [], // this is populated by the seed script
-}
+};

@@ -31,6 +31,7 @@ export const ProductHero: React.FC<{
               const { title: categoryTitle } = category as Category;
 
               const titleToUse = categoryTitle || 'Generic';
+
               const isLast = index === categories.length - 1;
 
               return (
