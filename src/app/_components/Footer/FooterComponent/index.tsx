@@ -1,17 +1,17 @@
-'use client'
-import React from 'react'
+'use client';
+import React from 'react';
 
-import classes from './index.module.scss'
+import classes from './index.module.scss';
 
-import { inclusions, noHeaderFooterUrls } from '../../../constants'
-import { usePathname } from 'next/navigation'
-import { Gutter } from '../../Gutter'
-import Image from 'next/image'
-import { Footer } from '../../../../payload/payload-types'
-import Link from 'next/link'
+import { inclusions, noHeaderFooterUrls } from '../../../constants';
+import { usePathname } from 'next/navigation';
+import { Gutter } from '../../Gutter';
+import Image from 'next/image';
+import { Footer } from '../../../../payload/payload-types';
+import Link from 'next/link';
 
 const FooterComponent = ({ footer }: { footer: Footer }) => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <footer className={noHeaderFooterUrls.includes(pathname) ? classes.hide : ' '}>
@@ -20,11 +20,13 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
           {inclusions.map((inclusion, index) => {
             return (
               <li key={index}>
-                <Image src={inclusion.icon} alt={inclusion.title} height={36} width={36} />
-                <h5 className={classes.title}>{inclusion.title}</h5>
+                <div className={classes.inclusionHeader}>
+                  <Image src={inclusion.icon} alt={inclusion.title} height={30} width={30} />
+                  <h5 className={classes.title}>{inclusion.title}</h5>
+                </div>
                 <p>{inclusion.description}</p>
               </li>
-            )
+            );
           })}
         </ul>
       </Gutter>
@@ -40,7 +42,7 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
         </Gutter>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default FooterComponent
+export default FooterComponent;
